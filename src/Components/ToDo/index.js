@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form.js';
-
 import { v4 as uuid } from 'uuid';
+import { useContext } from 'react';
+import { SettingsContext } from '../../Context/settingsContext.js';
+import { Pagination } from '@mantine/core';
 
+function paginate() {
+  const [activePage, setPage] = useState(1);
+  return <Pagination page={activePage} onChange={setPage} total={3} />;
+}
 const ToDo = () => {
+  const { hideComplete,numberItemsShown,sortDefault } = useContext(SettingsContext);
 
   const [defaultValues] = useState({
     difficulty: 4,
