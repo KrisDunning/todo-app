@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 export const SettingsContext = React.createContext();
 
 const SettingsProvider = ({children}) =>{
-const [hideComplete, setHideComplete] = useState(false);
+const [hideComplete, setHideComplete] = useState(true);
 const [numberItemsShown, setNumberItemsShown] = useState(4);
 const [sortDefault, setSortDefault] = useState('difficulty');
 
 const settingsValues = {
   hideComplete,
+  setHideComplete,
   numberItemsShown,
   sortDefault,
 }
