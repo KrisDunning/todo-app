@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Text} from '@mantine/core';
+import {Link} from "react-router-dom";
 
 const TheHeader = (incomplete) => {
   return (
@@ -11,7 +12,8 @@ const TheHeader = (incomplete) => {
     >
     <Navbar.Section>
     <Text>
-      Home    Settings
+    <Link to="/">Home</Link>    
+    <Link to="/settings">Settings</Link>
     </Text>
     </Navbar.Section>
     <Navbar.Section>
