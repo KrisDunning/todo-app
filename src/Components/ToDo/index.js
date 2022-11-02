@@ -7,6 +7,14 @@ import { Pagination } from '@mantine/core';
 import TheHeader from './header';
 import TodoForm from './todoForm.js';
 import DisplayList from './todoList.js';
+import SettingsPage from './settings';
+
+import{
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 const ToDo = () => {
   const { hideComplete, setHideComplete, numberItemsShown, sortDefault } = useContext(SettingsContext);
@@ -55,17 +63,27 @@ useEffect(() => {
 
 return (
   <>
-    <div>
+    <Router>
+    <>
       {TheHeader(incomplete)}
-    </div>
-    <div>
-      {TodoForm(addItem)}
-    </div>
-    <div>
-      {DisplayList(pageList,toggleComplete)}
-      {list.length>=4 && <Pagination page={activePage} onChange={setPage} total={numberItemsShown} />}
-    </div>
+    </>
+    <Routes>
+    <Route path="/" 
+      element={<>
+       {TodoForm(addItem)}
+       {DisplayList(pageList,toggleComplete)}
+       {list.length>=4 && <Pagination page={activePage} onChange={setPage} total={numberItemsShown} />}
+      </>
+    }/>
 
+    <Route path="/settings"
+    element={
+     <>
+     {SettingsPage}
+     </>
+    }/>
+    </Routes>
+   </Router>
   </>
 );
 };
