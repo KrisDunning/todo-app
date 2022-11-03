@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import useForm from '../../hooks/form.js';
 import { v4 as uuid } from 'uuid';
 import { useContext } from 'react';
 import { SettingsContext } from '../../Context/settingsContext.js';
@@ -7,7 +6,7 @@ import { Pagination } from '@mantine/core';
 import TheHeader from './header';
 import TodoForm from './todoForm.js';
 import DisplayList from './todoList.js';
-import SettingsPage from './settings';
+import SettingsPage from './settings.js';
 
 import{
   BrowserRouter as Router,
@@ -17,7 +16,7 @@ import{
 } from "react-router-dom";
 
 const ToDo = () => {
-  const { hideComplete, setHideComplete, numberItemsShown, sortDefault } = useContext(SettingsContext);
+  const { hideComplete, numberItemsShown, sortDefault } = useContext(SettingsContext);
   const [list, setList] = useState([]);
   const [pageList, setPageList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
@@ -77,11 +76,10 @@ return (
     }/>
 
     <Route path="/settings"
-    element={
-     <>
-     {SettingsPage}
+    element={<>
+     {SettingsPage()}
      </>
-    }/>
+     }/>
     </Routes>
    </Router>
   </>
