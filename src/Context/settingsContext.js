@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const SettingsContext = React.createContext();
 
@@ -11,7 +11,9 @@ const settingsValues = {
   hideComplete,
   setHideComplete,
   numberItemsShown,
+  setNumberItemsShown,
   sortDefault,
+  setSortDefault,
 }
 
 return (
