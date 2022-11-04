@@ -73,12 +73,11 @@ return (
        {DisplayList(pageList,toggleComplete)}
        {list.length>=4 && <Pagination page={activePage} onChange={setPage} total={numberItemsShown} />}
       </>
-    }/>
-
+    }/>   
     <Route path="/settings"
     element={<>
-     {SettingsPage()}
-     </>
+    {SettingsPage()}
+    </>
      }/>
     </Routes>
    </Router>
